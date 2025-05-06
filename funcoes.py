@@ -72,6 +72,10 @@ def calcula_pontos_sequencia_alta(dados):
     return 0
 
 def calcula_pontos_full_house(dados):
-    if dados.count(dados[0]) == 3 or dados.count(dados[0]) == 2:
+    contagens = []
+    for numero in dados:
+        contagens.append(dados.count(numero))
+
+    if 2 in contagens and 3 in contagens:
         return sum(dados)
     return 0
