@@ -119,18 +119,11 @@ def calcula_pontos_quina(dados):
     return 0
 
 def calcula_pontos_regra_avancada(dados):
-    resultado = {}
-    
-    if calcula_pontos_quina(dados) == 50:
-        resultado['cinco_iguais'] = 50
-        resultado['quadra'] = 0
-    else:
-        resultado['cinco_iguais'] = 0
-        resultado['quadra'] = calcula_pontos_quadra(dados)
-
-    resultado['full_house'] = calcula_pontos_full_house(dados)
-    resultado['sem_combinacao'] = calcula_pontos_soma(dados)
-    resultado['sequencia_alta'] = calcula_pontos_sequencia_alta(dados)
-    resultado['sequencia_baixa'] = calcula_pontos_sequencia_baixa(dados)
-
-    return resultado
+    return {
+        'cinco_iguais': calcula_pontos_quina(dados),
+        'full_house': calcula_pontos_full_house(dados),
+        'quadra': calcula_pontos_quadra(dados),
+        'sem_combinacao': 0,
+        'sequencia_alta': calcula_pontos_sequencia_baixa(dados),
+        'sequencia_baixa': calcula_pontos_sequencia_alta(dados)
+    }
