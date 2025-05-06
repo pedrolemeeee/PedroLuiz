@@ -30,3 +30,20 @@ def calcula_pontos_soma(dados):
     for numero in dados:
         total = total + numero
     return total
+
+def calcula_pontos_sequencia_baixa(dados):
+    dados_unicos = []
+    for numero in dados:
+        if numero not in dados_unicos:
+            dados_unicos.append(numero)
+    dados_ordenados = sorted(dados_unicos)
+
+    contador = 1
+    for i in range(1, len(dados_ordenados)):
+        if dados_ordenados[i] == dados_ordenados[i - 1] + 1:
+            contador = contador + 1
+            if contador >= 4:
+                return 15
+        else:
+            contador = 1
+    return 0
