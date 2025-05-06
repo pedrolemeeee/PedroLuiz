@@ -91,3 +91,11 @@ def calcula_pontos_full_house(dados):
             total = total + numero
         return total
     return 0
+
+def calcula_pontos_full_house(dados):
+    if dados[0] == dados[1] and dados[2] == dados[3]:
+        soma = 0
+        for n in dados:
+            soma = soma + n
+        return soma
+    return 0
