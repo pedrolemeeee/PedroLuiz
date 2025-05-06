@@ -92,36 +92,16 @@ def calcula_pontos_full_house(dados):
         return total
     return 0
 
-def calcula_pontos_full_house(dados):
-    n1 = dados[0]
-    rep1 = 0
-    i = 0
-    while i < len(dados):
-        if dados[i] == n1:
-            rep1 = rep1 + 1
-        i = i + 1
-
-    i = 0
-    while i < len(dados):
-        if dados[i] != n1:
-            n2 = dados[i]
-            break
-        i = i + 1
-    else:
-        return 0  
-
-    rep2 = 0
-    i = 0
-    while i < len(dados):
-        if dados[i] == n2:
-            rep2 = rep2 + 1
-        i = i + 1
-
-    if (rep1 == 3 and rep2 == 2) or (rep1 == 2 and rep2 == 3):
-        soma = 0
-        i = 0
-        while i < len(dados):
-            soma = soma + dados[i]
-            i = i + 1
-        return soma
+def calcula_pontos_quadra(dados):
+    frequencias = {}
+    total = 0
+    for valor in dados:
+        total += valor
+        if valor in frequencias:
+            frequencias[valor] += 1
+        else:
+            frequencias[valor] = 1
+    for valor in frequencias:
+        if frequencias[valor] >= 4:
+            return total
     return 0
