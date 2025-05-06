@@ -94,22 +94,27 @@ def calcula_pontos_full_house(dados):
 
 def calcula_pontos_full_house(dados):
     frequencias = {}
+
     for numero in dados:
         if numero in frequencias:
             frequencias[numero] = frequencias[numero] + 1
         else:
             frequencias[numero] = 1
 
-    tem_2 = False
-    tem_3 = False
+    chaves = []
+    quantidades = []
 
-    for valor in frequencias.values():
-        if valor == 2:
-            tem_2 = True
-        elif valor == 3:
-            tem_3 = True
+    for chave in frequencias:
+        chaves.append(chave)
+        quantidades.append(frequencias[chave])
 
-    if tem_2 and tem_3:
+    if len(chaves) != 2:
+        return 0
+
+    a = quantidades[0]
+    b = quantidades[1]
+
+    if (a == 3 and b == 2) or (a == 2 and b == 3):
         soma = 0
         for n in dados:
             soma = soma + n
