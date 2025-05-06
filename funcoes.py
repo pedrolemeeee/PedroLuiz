@@ -105,3 +105,15 @@ def calcula_pontos_quadra(dados):
         if frequencias[valor] >= 4:
             return total
     return 0
+
+def calcula_pontos_quina(dados):
+    frequencias = {}
+    for valor in dados:
+        if valor in frequencias:
+            frequencias[valor] += 1
+        else:
+            frequencias[valor] = 1
+    for valor in frequencias:
+        if frequencias[valor] >= 5:
+            return 50
+    return 0
