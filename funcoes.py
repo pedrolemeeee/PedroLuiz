@@ -70,3 +70,8 @@ def calcula_pontos_sequencia_alta(dados):
         else:
             contador = 1
     return 0
+
+def calcula_pontos_full_house(dados):
+    if dados.count(dados[0]) == 3 or dados.count(dados[0]) == 2:
+        return sum(dados)
+    return 0
