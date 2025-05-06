@@ -25,7 +25,7 @@ def calcula_pontos_regra_simples(dados):
             pontos[numero] = pontos[numero] + numero
     return pontos
 
-    def calcula_pontos_soma(dados):
+def calcula_pontos_soma(dados):
     total = 0
     for numero in dados:
         total = total + numero
