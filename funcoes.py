@@ -47,3 +47,26 @@ def calcula_pontos_sequencia_baixa(dados):
         else:
             contador = 1
     return 0
+
+def calcula_pontos_sequencia_alta(dados):
+    dados_unicos = []
+    for numero in dados:
+        if numero not in dados_unicos:
+            dados_unicos.append(numero)
+
+    for i in range(len(dados_unicos)):
+        for j in range(i + 1, len(dados_unicos)):
+            if dados_unicos[j] < dados_unicos[i]:
+                temp = dados_unicos[i]
+                dados_unicos[i] = dados_unicos[j]
+                dados_unicos[j] = temp
+
+    contador = 1
+    for i in range(1, len(dados_unicos)):
+        if dados_unicos[i] == dados_unicos[i - 1] + 1:
+            contador = contador + 1
+            if contador >= 5:
+                return 30
+        else:
+            contador = 1
+    return 0
